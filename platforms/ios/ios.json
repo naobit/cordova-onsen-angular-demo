@@ -1,0 +1,130 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"TouchID\"><param name=\"ios-package\" value=\"TouchID\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Badge\"><param name=\"ios-package\" value=\"APPBadge\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"PushNotification\"><param name=\"ios-package\" value=\"PushPlugin\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "*-Info.plist": {
+                "parents": {
+                    "UIBackgroundModes": [
+                        {
+                            "xml": "<array><string>remote-notification</string></array>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "cordova-plugin-touchid": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "de.appplant.cordova.common.registerusernotificationsettings": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "de.appplant.cordova.plugin.badge": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "phonegap-plugin-push": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
+            "id": "cordova-plugin-console.console",
+            "pluginId": "cordova-plugin-console",
+            "clobbers": [
+                "console"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-console/www/logger.js",
+            "id": "cordova-plugin-console.logger",
+            "pluginId": "cordova-plugin-console",
+            "clobbers": [
+                "cordova.logger"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+            "id": "cordova-plugin-dialogs.notification",
+            "pluginId": "cordova-plugin-dialogs",
+            "merges": [
+                "navigator.notification"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-touchid/www/touchid.js",
+            "id": "cordova-plugin-touchid.TouchID",
+            "pluginId": "cordova-plugin-touchid",
+            "clobbers": [
+                "touchid"
+            ]
+        },
+        {
+            "file": "plugins/de.appplant.cordova.plugin.badge/www/badge.js",
+            "id": "de.appplant.cordova.plugin.badge.Badge",
+            "pluginId": "de.appplant.cordova.plugin.badge",
+            "clobbers": [
+                "plugin.notification.badge",
+                "cordova.plugins.notification.badge"
+            ]
+        },
+        {
+            "file": "plugins/phonegap-plugin-push/www/push.js",
+            "id": "phonegap-plugin-push.PushNotification",
+            "pluginId": "phonegap-plugin-push",
+            "clobbers": [
+                "PushNotification"
+            ]
+        }
+    ],
+    "plugin_metadata": {
+        "cordova-plugin-console": "1.0.2",
+        "cordova-plugin-dialogs": "1.2.0",
+        "cordova-plugin-touchid": "0.3.0",
+        "cordova-plugin-whitelist": "1.2.0",
+        "de.appplant.cordova.common.registerusernotificationsettings": "1.0.1",
+        "de.appplant.cordova.plugin.badge": "0.7.1",
+        "phonegap-plugin-push": "1.5.3"
+    }
+}

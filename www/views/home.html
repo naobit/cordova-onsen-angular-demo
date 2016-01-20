@@ -1,0 +1,74 @@
+
+<div ng-controller="homeCtrl">
+    <ons-page>
+      <ons-toolbar>
+        <div class="center">Cordova + Angular + Onsen</div>
+      </ons-toolbar>
+
+      <ons-list>
+        <ons-list-header>Design</ons-list-header>
+
+        <ons-list-item modifier="chevron" ng-click="goto('onsenui')">
+          <ons-icon icon="fa-gears" size="20px"></ons-icon>
+           Onsen UI
+        </ons-list-item>
+
+        <ons-list-item modifier="chevron" ng-click="goto('transaction')">
+          <ons-icon icon="fa-credit-card" size="20px"></ons-icon>
+           Transaction Page
+        </ons-list-item>
+
+        <ons-list-item modifier="chevron" ng-click="goto('popup_nortifications')">
+          <ons-icon icon="fa-comment-o" size="20px"></ons-icon>
+           Popup Nortifications
+        </ons-list-item>
+
+        <ons-list-header>Native Actions</ons-list-header>
+
+        <ons-list-item modifier="chevron" ng-click="goto('touchid')">
+          <ons-icon icon="fa-hand-o-up" size="20px"></ons-icon>
+           Touch ID
+        </ons-list-item>
+
+        <ons-list-item modifier="chevron" ng-click="goto('push_nortifications')">
+          <ons-icon icon="fa-bell-o" size="20px"></ons-icon>
+           Push Nortifications
+        </ons-list-item>
+
+        <ons-list-item modifier="chevron" ng-click="goto('badges')">
+          <ons-icon icon="fa-circle-thin" size="20px"></ons-icon>
+           Badges
+        </ons-list-item>
+
+      </ons-list>
+    </ons-page>
+</div>
+
+<style type="text/css">
+	
+.list-item-action {
+  position: absolute;
+  right: 10px;
+  top: -3px;
+  font-size: 20px;
+}
+
+.list-item-action > ons-icon {
+  margin-top: 14px;
+}
+
+.list-item-note {
+  position: absolute;
+  right: 36px;
+  top: 0px;
+  font-size: 14px;
+}
+
+.list-item-note > .notification {
+  margin-top: 12px;
+}
+
+.lucent {
+  opacity: 0.4;
+}
+</style>

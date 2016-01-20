@@ -1,0 +1,22 @@
+
+
+<div ng-controller="badgesCtrl">
+    <ons-page>
+	    <ons-toolbar>
+	 		<div class="left">
+	            <ons-back-button>Back</ons-back-button>
+	        </div>
+	        <div class="center">Badges</div>
+	    </ons-toolbar>
+
+	    <div style="padding:150px 30px;">
+	    	<div style="margin-bottom:30px">
+    			<input type="number" class="text-input text-input--underbar" placeholder="bundge count" ng-model="badgeCount" style="width:100%;">
+    			
+    		</div>
+    		<div>
+	    		<button class="button button--large--cta" ng-click="setBadge()">Set</button>
+	    	</div>
+        </div>	
+    </ons-page>
+</div>

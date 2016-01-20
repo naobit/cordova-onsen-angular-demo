@@ -1,0 +1,8 @@
+{
+    "AudioToolbox.framework": 1,
+    "LocalAuthentication.framework": 1,
+    "Security.framework": 1,
+    "AddressBook.framework": 1,
+    "libsqlite3.tbd": 1,
+    "libz.tbd": 1
+}
