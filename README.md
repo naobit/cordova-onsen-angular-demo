@@ -3,7 +3,7 @@ Cordova + Angular + Onsen Demo App
 
 Cordova, Angular, Onsenを使ったサンプル  
 
-# テスト機能
+# デモ機能
 - Push Nortification(AWS SNS)
 - Badge
 - Touch ID
