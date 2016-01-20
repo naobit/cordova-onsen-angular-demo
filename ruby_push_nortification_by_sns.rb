@@ -12,7 +12,7 @@ client = sns.client
 
 response = client.create_platform_endpoint(
   platform_application_arn: 'arn:aws:sns:ap-northeast-1:321747268493:app/APNS_SANDBOX/kyash-proto',
-  token: 'cc72ad4afaf750395c9a5bdb121e1ea2432d5ce56056bef5158ce8a27124e6d1'
+  token: 'b832f5b8363ee52e0c602c0a147d39e2c9f35313f799098b2e71d09486219694'
 )
  
 endpoint_arn = response[:endpoint_arn]

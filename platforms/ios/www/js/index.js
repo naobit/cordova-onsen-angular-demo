@@ -69,7 +69,9 @@ app.controller('badgesCtrl',["$scope","$cordovaBadge", function($scope,$cordovaB
 }]);
 
 
-app.controller('pushNortificationsCtrl', ["$scope",function($scope) {
+app.controller('pushNortificationsCtrl', ["$scope","$rootScope",function($scope,$rootScope) {
+
+    $scope.token = $rootScope.token;
 /*
     if (typeof  $scope.ons.findComponent(".ons-navi").getCurrentPage().options.nortification !== 'undefined') {
         $scope.nortification = $scope.ons.findComponent(".ons-navi").getCurrentPage().options.nortification;
@@ -104,7 +106,7 @@ app.run(function($rootScope,$cordovaPushV5) {
         
         $cordovaPushV5.register().then(function(token){
             console.log('$cordovaPushV5:REGISTERED',token);
-
+            $rootScope.token = token;
             $cordovaPushV5.onError();
             $cordovaPushV5.onNotification();
         }, function(err){
