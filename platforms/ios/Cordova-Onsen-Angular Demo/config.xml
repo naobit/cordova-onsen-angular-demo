@@ -31,6 +31,7 @@
     </feature>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
+    <preference name="DisallowOverscroll" value="true" />
     <name>Cordova-Onsen-Angular Demo</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

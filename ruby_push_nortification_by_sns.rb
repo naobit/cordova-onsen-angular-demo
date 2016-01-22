@@ -18,5 +18,5 @@ response = client.create_platform_endpoint(
 endpoint_arn = response[:endpoint_arn]
 client.publish(
   target_arn: endpoint_arn,
-  message: 'Test push from amazon sns create endpoint'
+  message: 'JCBでお金が使われましたよ！'
 )
