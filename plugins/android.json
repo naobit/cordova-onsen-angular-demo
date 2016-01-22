@@ -1,0 +1,33 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "cordova-plugin-touchid": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "de.appplant.cordova.common.registerusernotificationsettings": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "de.appplant.cordova.plugin.badge": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "phonegap-plugin-push": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        }
+    },
+    "dependent_plugins": {}
+}

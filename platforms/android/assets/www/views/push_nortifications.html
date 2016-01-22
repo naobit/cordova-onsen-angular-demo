@@ -1,0 +1,26 @@
+
+
+<div ng-controller="pushNortificationsCtrl">
+    <ons-page>
+	    <ons-toolbar>
+	 		<div class="left">
+	            <ons-back-button>Back</ons-back-button>
+	        </div>
+	        <div class="center">Push Nortification</div>
+	    </ons-toolbar>
+      <div style="padding:30px 30px;">
+        <p>
+          {{nortification}}
+        </p>
+        <hr>
+        <p>
+          AWS SNSを使い配信を実行。<br>
+          rubyから実行の場合は、ruby_push_nortification_by_sns.rbを参照すること<br>
+        </p>
+        <hr>
+        <p>token = {{token}}</p>
+        
+        
+      </div>
+    </ons-page>
+</div>

@@ -1,0 +1,84 @@
+
+
+<div ng-controller="popupNortificationsCtrl">
+    <ons-page>
+	    <ons-toolbar>
+	 		<div class="left">
+	            <ons-back-button>Back</ons-back-button>
+	        </div>
+	        <div class="center">Popup Nortification</div>
+	    </ons-toolbar>
+
+      <ons-list>
+        <ons-list-item modifier="">
+          Alert
+          <span class="list-item-action">
+            <button class="button button--cta" ng-click="showPop('alert')">Action</button>
+          </span>
+        </ons-list-item>
+
+
+        <ons-list-item modifier="">
+          Confirm
+          <span class="list-item-action">
+            <button class="button button--cta" ng-click="showPop('confirm')">Action</button>
+          </span>
+        </ons-list-item>
+
+        <ons-list-item modifier="">
+          Prompt
+          <span class="list-item-action">
+            <button class="button button--cta" ng-click="showPop('prompt')">Action</button>
+          </span>
+        </ons-list-item>
+
+        <ons-list-item modifier="">
+          Beep
+          <span class="list-item-action">
+            <button class="button button--cta" ng-click="showPop('beep')">Action</button>
+          </span>
+        </ons-list-item>
+
+        <ons-list-item modifier="">
+          Vibrate
+          <span class="list-item-action">
+            <button class="button button--cta" ng-click="showPop('vibrate')">Action</button>
+          </span>
+        </ons-list-item>
+
+      </ons-list>
+    </ons-page>
+</div>
+
+<style type="text/css">
+	
+.list-item-action {
+  position: absolute;
+  right: 10px;
+  top: -3px;
+  font-size: 20px;
+}
+.list-item-action .button{
+    font-size: 14px;
+    padding: 0 10px;
+}
+
+.list-item-action > ons-icon {
+  margin-top: 14px;
+}
+
+.list-item-note {
+  position: absolute;
+  right: 36px;
+  top: 0px;
+  font-size: 14px;
+}
+
+.list-item-note > .notification {
+  margin-top: 12px;
+}
+
+.lucent {
+  opacity: 0.4;
+}
+</style>
