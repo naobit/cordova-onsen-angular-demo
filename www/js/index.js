@@ -7,13 +7,24 @@ app.controller('homeCtrl', ["$scope",function($scope) {
     };
 }]);
 
-app.controller('onsenUiCtrl', ["$scope",function($scope) {
+app.controller('inputCtrl', ["$scope",function($scope) {
 }]);
 
 
-app.controller('transactionCtrl',["$scope", function($scope) {
+app.controller('carouselCtrl',["$scope", function($scope) {
 }]);
 
+
+app.controller('pullHookCtrl', function($scope, $timeout) {
+    $scope.items = [];
+
+    $scope.load = function($done) {
+      $timeout(function() {
+        $scope.items.unshift($scope.items.length + 1);
+        $done();
+      }, 1000);
+    };
+  });
 
 app.controller('popupNortificationsCtrl', ["$scope",function($scope) {
     $scope.showPop = function(type){

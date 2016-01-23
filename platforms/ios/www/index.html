@@ -40,43 +40,21 @@
     </head>
     <body ng-app="cdvOnsNgApp">
 
-            <ons-navigator title="CdvOnsNg Demo" page="views/home.html" class="ons-navi"></ons-navigator>
-
-            <div class="tab-bar">
-              <label class="tab-bar__item">
-                <input type="radio" name="tab-bar-a" checked="checked">
-                <button class="tab-bar__button">
-                  <ons-icon icon="fa-list" class="tab-bar__icon fa"></i>
-                </button>
-              </label>
-              <label class="tab-bar__item">
-                <input type="radio" name="tab-bar-a">
-                <button class="tab-bar__button">
-                  <ons-icon icon="fa-comment-o" class="tab-bar__icon fa"></i>
-                </button>
-              </label>
-              <label class="tab-bar__item">
-                <input type="radio" name="tab-bar-a">
-                <button class="tab-bar__button">
-                  <ons-icon icon="fa-search" class="tab-bar__icon fa"></i>
-                </button>
-              </label>
-              <label class="tab-bar__item">
-                <input type="radio" name="tab-bar-a">
-                <button class="tab-bar__button">
-                  <ons-icon icon="fa-ellipsis-h" class="tab-bar__icon fa"></i>
-                </button>
-              </label>
-            </div>
-
-            <style type="text/css">
-            .navigation-bar{
-              background:#d0f0fc;
-            }
-            .navigation-bar__title{
-              color:#2f7fb1 !important;
-            }
-            </style>
+      <ons-tabbar>
+        <ons-tab page="views/slider.html" icon="fa-list" active="true"></ons-tab>
+        <ons-tab page="views/page2.html" icon="fa-comment-o"></ons-tab>
+        <ons-tab page="views/page3.html" icon="fa-search"></ons-tab>
+        <ons-tab page="views/page4.html" icon="fa-ellipsis-h"></ons-tab>
+      </ons-tabbar>
+  
+      <style type="text/css">
+      .navigation-bar{
+        background:#d0f0fc;
+      }
+      .navigation-bar__title{
+        color:#2f7fb1 !important;
+      }
+      </style>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>

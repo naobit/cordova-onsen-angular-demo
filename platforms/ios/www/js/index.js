@@ -11,9 +11,20 @@ app.controller('onsenUiCtrl', ["$scope",function($scope) {
 }]);
 
 
-app.controller('transactionCtrl',["$scope", function($scope) {
+app.controller('carouselCtrl',["$scope", function($scope) {
 }]);
 
+
+app.controller('pullHookCtrl', function($scope, $timeout) {
+    $scope.items = [];
+
+    $scope.load = function($done) {
+      $timeout(function() {
+        $scope.items.unshift($scope.items.length + 1);
+        $done();
+      }, 1000);
+    };
+  });
 
 app.controller('popupNortificationsCtrl', ["$scope",function($scope) {
     $scope.showPop = function(type){
@@ -26,7 +37,32 @@ app.controller('popupNortificationsCtrl', ["$scope",function($scope) {
               break;
             case 'prompt':
               navigator.notification.prompt("prompt", null)
-              break;              
+              break;     
+          }  
+    };
+
+    $scope.dialogs = {};
+    $scope.showDlg = function(dlg){
+        if (!$scope.dialogs[dlg]) {
+          ons.createDialog(dlg).then(function(dialog) {
+            $scope.dialogs[dlg] = dialog;
+            dialog.show();
+          });
+        } else {
+          $scope.dialogs[dlg].show();
+        }
+    }
+
+    $scope.onConfirm = function(num){
+        navigator.notification.alert("button id :"+num+" pushed", null, "On Confirm", '閉じる' );
+    }
+}]);
+
+
+
+app.controller('beepVibrateCtrl', ["$scope",function($scope) {
+    $scope.action = function(type){
+        switch (type) {
             case 'beep':
               navigator.notification.beep(1);
               break;
@@ -35,9 +71,7 @@ app.controller('popupNortificationsCtrl', ["$scope",function($scope) {
               break;
           }  
     };
-    $scope.onConfirm = function(num){
-        navigator.notification.alert("button id :"+num+" pushed", null, "On Confirm", '閉じる' );
-    }
+
 }]);
 
 app.controller('touchIdCtrl', ["$scope","$cordovaTouchID",function($scope,$cordovaTouchID) {
@@ -91,7 +125,7 @@ app.run(function($rootScope,$cordovaPushV5) {
         // set nortiication
         var pushConfig = {
             "android":  {
-                "senderID":1234567,
+                "senderID":"181478742919",
                 "icon":"ic_stat_notification"
             },
             "ios": {
