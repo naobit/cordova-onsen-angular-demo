@@ -19,12 +19,20 @@ Cordova, Angular, Onsenを使ったサンプル
 
 # ビルド方法
 
-#### ビルドしてplatforms/ios/内にxcodeプロジェクトが生成
-``cordova build``  
-生成されたxcodeプロジェクトを開くとそこからiOS端末で実行可能
+#### iOS
+``cordova build ios``  
+platforms/ios/内にxcodeプロジェクトが生成されるので、それを開くとiOS端末で実行可能 
+xCodeのconsole上に接続した実機のログが表示される
   
-#### 接続したiosデバイスで実行  
-``cordova run ios --devide``
+#### Android
+デバイス上で走らせる　``cordova run android --device``  
+デバッグコンソール立ち上げ ``ddms``  
+
+#### Android 証明書付き
+keytoolから証明書を作成 ``keytool -genkey -v -keystore [keystore_name].keystore -alias [alias_name] -keyalg RSA -keysize 2048 -validity 10000``
+releaseでbuild　``cordova build android --release``  
+証明付与　``jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore [keystore_name].keystore platforms/android/build/outputs/apk/android-debug.apk [alias_name]``  
+最適化　``zipalign -v 4 platforms/android/build/outputs/apk/android-release-unsigned.apk platforms/android/build/outputs/apk/android-release-signed.apk``
 
 #### Monacaでライブシンク
 ``monaca livesync``
@@ -60,3 +68,12 @@ Cordova, Angular, Onsenを使ったサンプル
 1. EndPoint作成(tokenを登録)
 1. Publish to Endpoit
 1. 届く！！！！
+
+
+# AndroidとGCMとAWS SNSの設定
+1. Google Developers Consoleへログイン
+1. プロジェクト作成
+1. Google APIを利用
+1. Cloud Messaging for Androidを有効にする
+1. SENDER ID →　プロジェクト番号
+1. API KEY → キー

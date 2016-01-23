@@ -91,7 +91,7 @@ app.run(function($rootScope,$cordovaPushV5) {
         // set nortiication
         var pushConfig = {
             "android":  {
-                "senderID":1234567,
+                "senderID":"181478742919",
                 "icon":"ic_stat_notification"
             },
             "ios": {

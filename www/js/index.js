@@ -35,6 +35,19 @@ app.controller('popupNortificationsCtrl', ["$scope",function($scope) {
               break;
           }  
     };
+
+    $scope.dialogs = {};
+    $scope.showDlg = function(dlg){
+        if (!$scope.dialogs[dlg]) {
+          ons.createDialog(dlg).then(function(dialog) {
+            $scope.dialogs[dlg] = dialog;
+            dialog.show();
+          });
+        } else {
+          $scope.dialogs[dlg].show();
+        }
+    }
+
     $scope.onConfirm = function(num){
         navigator.notification.alert("button id :"+num+" pushed", null, "On Confirm", '閉じる' );
     }
@@ -91,7 +104,7 @@ app.run(function($rootScope,$cordovaPushV5) {
         // set nortiication
         var pushConfig = {
             "android":  {
-                "senderID":1234567,
+                "senderID":"181478742919",
                 "icon":"ic_stat_notification"
             },
             "ios": {
