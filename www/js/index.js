@@ -26,13 +26,7 @@ app.controller('popupNortificationsCtrl', ["$scope",function($scope) {
               break;
             case 'prompt':
               navigator.notification.prompt("prompt", null)
-              break;              
-            case 'beep':
-              navigator.notification.beep(1);
-              break;
-            case 'vibrate':
-              navigator.notification.vibrate(3000);
-              break;
+              break;     
           }  
     };
 
@@ -51,6 +45,22 @@ app.controller('popupNortificationsCtrl', ["$scope",function($scope) {
     $scope.onConfirm = function(num){
         navigator.notification.alert("button id :"+num+" pushed", null, "On Confirm", '閉じる' );
     }
+}]);
+
+
+
+app.controller('beepVibrateCtrl', ["$scope",function($scope) {
+    $scope.action = function(type){
+        switch (type) {
+            case 'beep':
+              navigator.notification.beep(1);
+              break;
+            case 'vibrate':
+              navigator.notification.vibrate(3000);
+              break;
+          }  
+    };
+
 }]);
 
 app.controller('touchIdCtrl', ["$scope","$cordovaTouchID",function($scope,$cordovaTouchID) {

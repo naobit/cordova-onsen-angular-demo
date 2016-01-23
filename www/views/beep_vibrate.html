@@ -1,40 +1,22 @@
 
 
-<div ng-controller="popupNortificationsCtrl">
+<div ng-controller="beepVibrateCtrl">
     <ons-page>
 	    <ons-toolbar>
-	 	     <div class="left">
+	 		<div class="left">
 	            <ons-back-button>Back</ons-back-button>
 	        </div>
-	        <div class="center">Popup Nortification</div>
+	        <div class="center">Beep & Vibrate</div>
 	    </ons-toolbar>
 
       <ons-list>
-        <ons-list-header>Flat Design</ons-list-header>
 
-        <ons-list-item ng-click="showPop('alert')" modifier="tappable">
-          Alert
+        <ons-list-item ng-click="action('beep')" modifier="tappable">
+          Beep
         </ons-list-item>
 
-
-        <ons-list-item ng-click="showPop('confirm')" modifier="tappable">
-          Confirm
-        </ons-list-item>
-
-        <ons-list-item ng-click="showPop('prompt')" modifier="tappable">
-          Prompt
-        </ons-list-item>
-
-        <ons-list-header>Dialog</ons-list-header>
-
-        <ons-list-item ng-click="showDlg('material.html')" modifier="tappable">
-          Material Design
-        </ons-list-item>
-        <ons-list-item ng-click="showDlg('login.html')" modifier="tappable">
-          Login
-        </ons-list-item>
-        <ons-list-item ng-click="showDlg('list.html')" modifier="tappable">
-          List
+        <ons-list-item ng-click="action('vibrate')" modifier="tappable">
+          Vibrate
         </ons-list-item>
 
       </ons-list>
