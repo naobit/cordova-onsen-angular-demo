@@ -7,7 +7,7 @@ app.controller('homeCtrl', ["$scope",function($scope) {
     };
 }]);
 
-app.controller('onsenUiCtrl', ["$scope",function($scope) {
+app.controller('inputCtrl', ["$scope",function($scope) {
 }]);
 
 
