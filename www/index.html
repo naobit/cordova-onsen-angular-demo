@@ -40,21 +40,22 @@
     </head>
     <body ng-app="cdvOnsNgApp">
 
-      <ons-tabbar>
-        <ons-tab page="views/slider.html" icon="fa-list" active="true"></ons-tab>
-        <ons-tab page="views/page2.html" icon="fa-comment-o"></ons-tab>
-        <ons-tab page="views/page3.html" icon="fa-search"></ons-tab>
-        <ons-tab page="views/page4.html" icon="fa-ellipsis-h"></ons-tab>
-      </ons-tabbar>
-  
-      <style type="text/css">
-      .navigation-bar{
-        background:#d0f0fc;
-      }
-      .navigation-bar__title{
-        color:#2f7fb1 !important;
-      }
-      </style>
+        <div ng-controller="appCtrl">
+          <ons-tabbar>
+            <ons-tab page="views/slider.html" icon="fa-list" active="true"></ons-tab>
+            <ons-tab page="views/page2.html" icon="fa-comment-o"></ons-tab>
+            <ons-tab page="views/page3.html" icon="fa-search"></ons-tab>
+            <ons-tab page="views/page4.html" icon="fa-ellipsis-h"></ons-tab>
+          </ons-tabbar>
+        </div>
+          <style type="text/css">
+          .navigation-bar{
+            background:#d0f0fc;
+          }
+          .navigation-bar__title{
+            color:#2f7fb1 !important;
+          }
+          </style>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>

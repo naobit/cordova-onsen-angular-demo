@@ -1,9 +1,13 @@
 
 var app = angular.module('cdvOnsNgApp', ['onsen', 'ngCordova']);
 
+app.controller('appCtrl',["$scope", function($scope) {
+    console.log('appCtrl');
+}]);
+
 app.controller('homeCtrl', ["$scope",function($scope) {
     $scope.goto = function(page){
-        $scope.ons.findComponent(".ons-navi").pushPage("views/"+page+".html");
+        $scope.ons.findComponent("#ons-navi").pushPage("views/"+page+".html");
     };
 }]);
 
@@ -114,9 +118,9 @@ app.controller('pushNortificationsCtrl', ["$scope","$rootScope",function($scope,
 */
 }]);
 
-app.run(function($rootScope,$cordovaPushV5) {
+app.run(function($rootScope,$cordovaPushV5,$cordovaBadge) {
 
-    console.log('app run! but not write log');
+    console.log('app run! but device is not ready');
 
     function onDeviceReady() {
 
@@ -148,8 +152,15 @@ app.run(function($rootScope,$cordovaPushV5) {
         });
 
         $rootScope.$on('$cordovaPushV5:notificationReceived', function(event, notification) {
-            console.log("CordovaV5 nortified",notification);
-           
+            console.log("CordovaV5 nortified");
+            console.log(notification);
+
+            // set the badge if it's set in the nortification
+            if(notification.additionalData.body.badgeCount){
+                var badgeCount = notification.additionalData.body.badgeCount;
+                $cordovaBadge.set(badgeCount);
+            }
+    
             // ここが上手く行かない。
             // $rootScope.ons.findComponent(".ons-navi").pushPage("views/push_nortifications.html",{"nortification":nortification});
             
@@ -162,15 +173,15 @@ app.run(function($rootScope,$cordovaPushV5) {
 
     }
 
-    //アプリ立ち上げ時に実行のテスト
+    //アプリ立ち上げ時に実行
     document.addEventListener("deviceready", onDeviceReady, false);
 
-    //アプリ停止時に実行のテスト
+    //アプリ停止時に実行
     document.addEventListener("pause", function() {
         console.log("Cordova pause");
     });
 
-    //アプリ再開時に実行のテスト
+    //アプリ再開時に実行
     document.addEventListener("resume", function() {
         console.log("Cordova resume");
     });

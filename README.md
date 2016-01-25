@@ -68,6 +68,7 @@ releaseでbuild　``cordova build android --release``
 1. EndPoint作成(tokenを登録)
 1. Publish to Endpoit
 1. 届く！！！！
+1. 投げるJSONの内容やAPIはpush_nortification_by_sns.rb参照
 
 
 # AndroidとGCMとAWS SNSの設定

@@ -32,6 +32,14 @@
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <preference name="DisallowOverscroll" value="true" />
+    <config-file parent="CFBundleURLTypes" target="*-Info.plist">
+        <array>
+            <dict>
+                <key>UIBackgroundModes</key>
+                <string>fetch</string>
+            </dict>
+        </array>
+    </config-file>
     <name>Cordova-Onsen-Angular Demo</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
