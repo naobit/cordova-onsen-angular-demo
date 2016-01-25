@@ -1,0 +1,129 @@
+
+
+<div ng-controller="beepVibrateCtrl">
+    <ons-page>
+	    <ons-toolbar>
+	 		<div class="left">
+	            <ons-back-button>Back</ons-back-button>
+	        </div>
+	        <div class="center">Beep & Vibrate</div>
+	    </ons-toolbar>
+
+      <ons-list>
+
+        <ons-list-item ng-click="action('beep')" modifier="tappable">
+          Beep
+        </ons-list-item>
+
+        <ons-list-item ng-click="action('vibrate')" modifier="tappable">
+          Vibrate
+        </ons-list-item>
+
+      </ons-list>
+    </ons-page>
+</div>
+
+
+<ons-template id="material.html">
+  <ons-dialog var="dialog" modifier="material" cancelable>
+    <div style="padding: 0 22px 22px 22px">
+      <p style="font-weight: 500;">Volumes</p>
+
+      <p style="opacity: 0.6; font-size: 80%;">Media volume</p>
+      <div>
+        <input type="range" class="range range--material" style="float: right; width: 190px; margin-top: -4px;" value="30">
+        <i class="zmdi zmdi-volume-up" style="font-size: 24px; opacity: 0.6"></i>
+      </div>
+
+      <p style="opacity: 0.6; font-size: 80%;">Alarm volume</p>
+      <div>
+        <input type="range" class="range range--material" style="float: right; width: 190px; margin-top: -4px;" value="40">
+        <i class="zmdi zmdi-alarm" style="font-size: 24px; opacity: 0.6"></i>
+      </div>
+    </div>
+  </ons-dialog>
+</ons-template>
+
+<ons-template id="-"></ons-template>
+
+<ons-template id="login.html">
+  <ons-dialog var="dialog" cancelable>
+
+    <ons-toolbar inline>
+      <div class="center">
+        Login
+      </div>
+    </ons-toolbar>
+
+    <p>
+      <input placeholder="Username" id="username" class="text-input">
+    </p>
+
+    <p>
+      <input type="password" placeholder="Password" id="username" class="text-input">
+    </p>
+
+    <p>
+      <ons-button modifier="large" ng-click="dialog.hide()">Sign in</ons-button>
+    </p>
+
+  </ons-dialog>
+</ons-template>
+
+<ons-template id="-"></ons-template>
+
+<ons-template id="list.html">
+  <ons-dialog var="dialog" cancelable>
+
+    <ons-list>
+      <ons-list-item modifier="tappable">
+        Foo
+      </ons-list-item>
+      <ons-list-item modifier="tappable">
+        Bar
+      </ons-list-item>
+      <ons-list-item modifier="tappable">
+        Hoge
+      </ons-list-item>
+    </ons-list>
+
+  </ons-dialog>
+</ons-template>
+
+<style type="text/css">
+	
+.list-item-action {
+  position: absolute;
+  right: 10px;
+  top: -3px;
+  font-size: 20px;
+}
+
+.list-item-action > ons-icon {
+  margin-top: 14px;
+}
+
+.list-item-note {
+  position: absolute;
+  right: 36px;
+  top: 0px;
+  font-size: 14px;
+}
+
+.list-item-note > .notification {
+  margin-top: 12px;
+}
+
+.lucent {
+  opacity: 0.4;
+}
+
+ons-dialog:not([modifier='material']) p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+input {
+  width: 100%;
+}
+</style>

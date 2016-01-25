@@ -2,6 +2,7 @@
 var app = angular.module('cdvOnsNgApp', ['onsen', 'ngCordova']);
 
 app.controller('appCtrl',["$scope", function($scope) {
+
 }]);
 
 app.controller('homeCtrl', ["$scope",function($scope) {
@@ -117,9 +118,19 @@ app.controller('pushNortificationsCtrl', ["$scope","$rootScope",function($scope,
 */
 }]);
 
-app.run(function($rootScope,$cordovaPushV5,$cordovaBadge,$timeout) {
+app.controller('webviewCtrl', function($scope, $rootScope, $cordovaInAppBrowser) {
 
-    console.log('app run! but not write log');
+    
+    $scope.openExtUrl=function(){
+        event.preventDefault();
+        window.open(encodeURI("http://www.jcb.co.jp/life/jcb_premo/index.html"), '_system', 'location=yes');
+    }
+
+});
+
+app.run(function($rootScope,$cordovaPushV5,$cordovaBadge) {
+
+    console.log('app run! but device is not ready');
 
     function onDeviceReady() {
 
@@ -159,12 +170,6 @@ app.run(function($rootScope,$cordovaPushV5,$cordovaBadge,$timeout) {
                 var badgeCount = notification.additionalData.body.badgeCount;
                 $cordovaBadge.set(badgeCount);
             }
-
-      $timeout(function() {
-        console.log(123);
-            $rootScope.ons.$get('#ons-navi').pushPage("views/push_nortifications.html",{"nortification":nortification});   
-
-      }, 3000);
     
             // ここが上手く行かない。
             // $rootScope.ons.findComponent(".ons-navi").pushPage("views/push_nortifications.html",{"nortification":nortification});

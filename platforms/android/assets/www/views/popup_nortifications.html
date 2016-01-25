@@ -3,52 +3,110 @@
 <div ng-controller="popupNortificationsCtrl">
     <ons-page>
 	    <ons-toolbar>
-	 		<div class="left">
+	 	     <div class="left">
 	            <ons-back-button>Back</ons-back-button>
 	        </div>
 	        <div class="center">Popup Nortification</div>
 	    </ons-toolbar>
 
       <ons-list>
-        <ons-list-item modifier="">
+        <ons-list-header>Flat Design</ons-list-header>
+
+        <ons-list-item ng-click="showPop('alert')" modifier="tappable">
           Alert
-          <span class="list-item-action">
-            <button class="button button--cta" ng-click="showPop('alert')">Action</button>
-          </span>
         </ons-list-item>
 
 
-        <ons-list-item modifier="">
+        <ons-list-item ng-click="showPop('confirm')" modifier="tappable">
           Confirm
-          <span class="list-item-action">
-            <button class="button button--cta" ng-click="showPop('confirm')">Action</button>
-          </span>
         </ons-list-item>
 
-        <ons-list-item modifier="">
+        <ons-list-item ng-click="showPop('prompt')" modifier="tappable">
           Prompt
-          <span class="list-item-action">
-            <button class="button button--cta" ng-click="showPop('prompt')">Action</button>
-          </span>
         </ons-list-item>
 
-        <ons-list-item modifier="">
-          Beep
-          <span class="list-item-action">
-            <button class="button button--cta" ng-click="showPop('beep')">Action</button>
-          </span>
-        </ons-list-item>
+        <ons-list-header>Dialog</ons-list-header>
 
-        <ons-list-item modifier="">
-          Vibrate
-          <span class="list-item-action">
-            <button class="button button--cta" ng-click="showPop('vibrate')">Action</button>
-          </span>
+        <ons-list-item ng-click="showDlg('material.html')" modifier="tappable">
+          Material Design
+        </ons-list-item>
+        <ons-list-item ng-click="showDlg('login.html')" modifier="tappable">
+          Login
+        </ons-list-item>
+        <ons-list-item ng-click="showDlg('list.html')" modifier="tappable">
+          List
         </ons-list-item>
 
       </ons-list>
     </ons-page>
 </div>
+
+
+<ons-template id="material.html">
+  <ons-dialog var="dialog" modifier="material" cancelable>
+    <div style="padding: 0 22px 22px 22px">
+      <p style="font-weight: 500;">Volumes</p>
+
+      <p style="opacity: 0.6; font-size: 80%;">Media volume</p>
+      <div>
+        <input type="range" class="range range--material" style="float: right; width: 190px; margin-top: -4px;" value="30">
+        <i class="zmdi zmdi-volume-up" style="font-size: 24px; opacity: 0.6"></i>
+      </div>
+
+      <p style="opacity: 0.6; font-size: 80%;">Alarm volume</p>
+      <div>
+        <input type="range" class="range range--material" style="float: right; width: 190px; margin-top: -4px;" value="40">
+        <i class="zmdi zmdi-alarm" style="font-size: 24px; opacity: 0.6"></i>
+      </div>
+    </div>
+  </ons-dialog>
+</ons-template>
+
+<ons-template id="-"></ons-template>
+
+<ons-template id="login.html">
+  <ons-dialog var="dialog" cancelable>
+
+    <ons-toolbar inline>
+      <div class="center">
+        Login
+      </div>
+    </ons-toolbar>
+
+    <p>
+      <input placeholder="Username" id="username" class="text-input">
+    </p>
+
+    <p>
+      <input type="password" placeholder="Password" id="username" class="text-input">
+    </p>
+
+    <p>
+      <ons-button modifier="large" ng-click="dialog.hide()">Sign in</ons-button>
+    </p>
+
+  </ons-dialog>
+</ons-template>
+
+<ons-template id="-"></ons-template>
+
+<ons-template id="list.html">
+  <ons-dialog var="dialog" cancelable>
+
+    <ons-list>
+      <ons-list-item modifier="tappable">
+        Foo
+      </ons-list-item>
+      <ons-list-item modifier="tappable">
+        Bar
+      </ons-list-item>
+      <ons-list-item modifier="tappable">
+        Hoge
+      </ons-list-item>
+    </ons-list>
+
+  </ons-dialog>
+</ons-template>
 
 <style type="text/css">
 	
@@ -57,10 +115,6 @@
   right: 10px;
   top: -3px;
   font-size: 20px;
-}
-.list-item-action .button{
-    font-size: 14px;
-    padding: 0 10px;
 }
 
 .list-item-action > ons-icon {
@@ -80,5 +134,14 @@
 
 .lucent {
   opacity: 0.4;
+}
+
+ons-dialog:not([modifier='material']) p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+input {
+  width: 100%;
 }
 </style>

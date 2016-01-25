@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		015576E1A904477EA9F95356 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F6FF9F4F0C6469DA0B0B238 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		01EC63F4230C4059A4653275 /* libGTM_SystemVersion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF48BF0029F74718BAF93FFE /* libGTM_SystemVersion.a */; };
@@ -81,6 +80,7 @@
 		F6C1C972163B4151801B36D5 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED9655DBDE84BF59B1210A2 /* AddressBook.framework */; };
 		FC4E13BADFC34366BED8BA06 /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C56B9BB33842ECB169B5F8 /* AppDelegate+notification.m */; };
 		FC9334B24F884D668626E37A /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6D2A47422F4A60BC00A926 /* PushPlugin.m */; };
+		6F4F3B3A11B345BB819A1969 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F07653BB0D48D28AF730BF /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +208,8 @@
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Cordova-Onsen-Angular Demo/config.xml"; sourceTree = "<group>"; };
 		F87493DBBFD34CEE9AB65EE4 /* CDVNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVNotification.m; path = "cordova-plugin-dialogs/CDVNotification.m"; sourceTree = "<group>"; };
 		FE1243E1C9B549F3A00859E4 /* libGTM_DebugUtils.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libGTM_DebugUtils.a; path = "Cordova-Onsen-Angular Demo/Plugins/phonegap-plugin-push/GCM/Libraries/libGTM_DebugUtils.a"; sourceTree = "<group>"; };
+		C5F07653BB0D48D28AF730BF /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		7B04DEACE7AD4430B23DD158 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +404,8 @@
 				0DD2C65843154D37B0217866 /* GCMReceiverDelegate.h */,
 				77DBF214FBDD4A5EA16C243C /* GCMService.h */,
 				700D2561B4104C63ADB05B6D /* GoogleCloudMessaging.h */,
+				C5F07653BB0D48D28AF730BF /* CDVInAppBrowser.m */,
+				7B04DEACE7AD4430B23DD158 /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = "Cordova-Onsen-Angular Demo/Plugins";
@@ -600,6 +604,7 @@
 				D5FC65DCD1674FCB8736FFC4 /* UIApplication+APPBadge.m in Sources */,
 				FC4E13BADFC34366BED8BA06 /* AppDelegate+notification.m in Sources */,
 				FC9334B24F884D668626E37A /* PushPlugin.m in Sources */,
+				6F4F3B3A11B345BB819A1969 /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

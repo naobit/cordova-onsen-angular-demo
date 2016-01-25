@@ -2,20 +2,25 @@
 <div ng-controller="homeCtrl">
     <ons-page>
       <ons-toolbar>
-        <div class="center">Cordova + Angular + Onsen</div>
+          <div class="left">
+            <ons-toolbar-button ng-click="menu.toggle()">
+              <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+        <div class="center">Cdv + Ons + Ng</div>
       </ons-toolbar>
 
       <ons-list>
         <ons-list-header>Design</ons-list-header>
 
-        <ons-list-item modifier="chevron" ng-click="goto('onsenui')">
+        <ons-list-item modifier="chevron" ng-click="goto('input')">
           <ons-icon icon="fa-gears" size="20px"></ons-icon>
-           Onsen UI
+          Inputs
         </ons-list-item>
 
-        <ons-list-item modifier="chevron" ng-click="goto('transaction')">
+        <ons-list-item modifier="chevron" ng-click="goto('carousel')">
           <ons-icon icon="fa-credit-card" size="20px"></ons-icon>
-           Transaction Page
+           Carousel
         </ons-list-item>
 
         <ons-list-item modifier="chevron" ng-click="goto('popup_nortifications')">
@@ -23,7 +28,22 @@
            Popup Nortifications
         </ons-list-item>
 
+        <ons-list-item modifier="chevron" ng-click="goto('pull_hook')">
+          <ons-icon icon="fa-refresh" size="20px"></ons-icon>
+           Pull Hook Loader
+        </ons-list-item>
+
+        <ons-list-item modifier="chevron" ng-click="goto('webview')">
+          <ons-icon icon="fa-globe" size="20px"></ons-icon>
+           Web View
+        </ons-list-item>
+
         <ons-list-header>Native Actions</ons-list-header>
+
+        <ons-list-item modifier="chevron" ng-click="goto('beep_vibrate')">
+          <ons-icon icon="fa-bolt" size="20px"></ons-icon>
+           Beep & Vibrate
+        </ons-list-item>
 
         <ons-list-item modifier="chevron" ng-click="goto('touchid')">
           <ons-icon icon="fa-hand-o-up" size="20px"></ons-icon>

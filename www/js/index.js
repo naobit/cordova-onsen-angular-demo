@@ -2,7 +2,7 @@
 var app = angular.module('cdvOnsNgApp', ['onsen', 'ngCordova']);
 
 app.controller('appCtrl',["$scope", function($scope) {
-    console.log('appCtrl');
+
 }]);
 
 app.controller('homeCtrl', ["$scope",function($scope) {
@@ -117,6 +117,16 @@ app.controller('pushNortificationsCtrl', ["$scope","$rootScope",function($scope,
     }
 */
 }]);
+
+app.controller('webviewCtrl', function($scope, $rootScope, $cordovaInAppBrowser) {
+
+    
+    $scope.openExtUrl=function(){
+        event.preventDefault();
+        window.open(encodeURI("http://www.jcb.co.jp/life/jcb_premo/index.html"), '_system', 'location=yes');
+    }
+
+});
 
 app.run(function($rootScope,$cordovaPushV5,$cordovaBadge) {
 

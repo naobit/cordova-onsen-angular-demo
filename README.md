@@ -15,6 +15,7 @@ Cordova, Angular, Onsenを使ったサンプル
 - cordova-plugin-dialogs
 - cordova-plugin-touchid
 - cordova-plugin-whitelist    
+- cordova-plugin-badge    
 - phonegap-plugin-push
 
 # ビルド方法
