@@ -27,6 +27,10 @@
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Geolocation\"><param name=\"android-package\" value=\"org.apache.cordova.geolocation.Geolocation\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -88,6 +92,16 @@
                             "xml": "<uses-permission android:name=\"${applicationId}.permission.C2D_MESSAGE\" />",
                             "count": 1
                         }
+                    ],
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+                            "count": 1
+                        }
                     ]
                 }
             }
@@ -116,6 +130,9 @@
             "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
         },
         "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
         }
     },
@@ -176,6 +193,20 @@
                 "cordova.InAppBrowser.open",
                 "window.open"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+            "id": "cordova-plugin-geolocation.geolocation",
+            "pluginId": "cordova-plugin-geolocation",
+            "clobbers": [
+                "navigator.geolocation"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+            "id": "cordova-plugin-geolocation.PositionError",
+            "pluginId": "cordova-plugin-geolocation",
+            "runs": true
         }
     ],
     "plugin_metadata": {
@@ -186,6 +217,7 @@
         "de.appplant.cordova.common.registerusernotificationsettings": "1.0.1",
         "de.appplant.cordova.plugin.badge": "0.7.1",
         "phonegap-plugin-push": "1.5.3",
-        "cordova-plugin-inappbrowser": "1.2.0"
+        "cordova-plugin-inappbrowser": "1.2.0",
+        "cordova-plugin-geolocation": "2.1.0"
     }
 }

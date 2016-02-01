@@ -57,6 +57,38 @@ module.exports = [
             "cordova.InAppBrowser.open",
             "window.open"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
+        "id": "cordova-plugin-geolocation.Coordinates",
+        "pluginId": "cordova-plugin-geolocation",
+        "clobbers": [
+            "Coordinates"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+        "id": "cordova-plugin-geolocation.PositionError",
+        "pluginId": "cordova-plugin-geolocation",
+        "clobbers": [
+            "PositionError"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-geolocation/www/Position.js",
+        "id": "cordova-plugin-geolocation.Position",
+        "pluginId": "cordova-plugin-geolocation",
+        "clobbers": [
+            "Position"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-geolocation/www/geolocation.js",
+        "id": "cordova-plugin-geolocation.geolocation",
+        "pluginId": "cordova-plugin-geolocation",
+        "clobbers": [
+            "navigator.geolocation"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -69,7 +101,8 @@ module.exports.metadata =
     "de.appplant.cordova.common.registerusernotificationsettings": "1.0.1",
     "de.appplant.cordova.plugin.badge": "0.7.1",
     "phonegap-plugin-push": "1.5.3",
-    "cordova-plugin-inappbrowser": "1.2.0"
+    "cordova-plugin-inappbrowser": "1.2.0",
+    "cordova-plugin-geolocation": "2.1.0"
 }
 // BOTTOM OF METADATA
 });

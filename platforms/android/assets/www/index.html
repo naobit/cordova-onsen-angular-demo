@@ -30,7 +30,7 @@
 
         <link rel="stylesheet" href="bower_components/OnsenUI/css/onsenui.css">
         <link rel="stylesheet" href="bower_components/OnsenUI/css/onsen-css-components.css">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="styles/css/style.css">
         
         <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
         <script type="text/javascript" src="bower_components/ngCordova/dist/ng-cordova.js"></script>
@@ -39,23 +39,7 @@
 
     </head>
     <body ng-app="cdvOnsNgApp">
-
-        <div ng-controller="appCtrl">
-          <ons-tabbar>
-            <ons-tab page="views/slider.html" icon="fa-list" active="true"></ons-tab>
-            <ons-tab page="views/page2.html" icon="fa-comment-o"></ons-tab>
-            <ons-tab page="views/page3.html" icon="fa-search"></ons-tab>
-            <ons-tab page="views/page4.html" icon="fa-ellipsis-h"></ons-tab>
-          </ons-tabbar>
-        </div>
-          <style type="text/css">
-          .navigation-bar{
-            background:#d0f0fc;
-          }
-          .navigation-bar__title{
-            color:#2f7fb1 !important;
-          }
-          </style>
-        <script type="text/javascript" src="js/index.js"></script>
+        <ng-include src="'app/views/_tabbar.html'"></ng-include>
+        <script type="text/javascript" src="app/app.js"></script>
     </body>
 </html>

@@ -30,6 +30,9 @@
         },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
         }
     },
     "dependent_plugins": {}

@@ -26,6 +26,7 @@ platforms/ios/内にxcodeプロジェクトが生成されるので、それを�
 xCodeのconsole上に接続した実機のログが表示される
   
 #### Android
+接続されたデバイスの確認  ``adb devices``
 デバイス上で走らせる　``cordova run android --device``  
 デバッグコンソール立ち上げ ``ddms``  
 
@@ -36,6 +37,7 @@ releaseでbuild　``cordova build android --release``
 最適化　``zipalign -v 4 platforms/android/build/outputs/apk/android-release-unsigned.apk platforms/android/build/outputs/apk/android-release-signed.apk``
 
 #### Monacaでライブシンク
+``monaca login``
 ``monaca livesync``
 
 # iOS Cert.とAWS SNSの設定
@@ -71,11 +73,51 @@ releaseでbuild　``cordova build android --release``
 1. 届く！！！！
 1. 投げるJSONの内容やAPIはpush_nortification_by_sns.rb参照
 
-
 # AndroidとGCMとAWS SNSの設定
 1. Google Developers Consoleへログイン
 1. プロジェクト作成
 1. Google APIを利用
 1. Cloud Messaging for Androidを有効にする
+1. サーバキーを創る。IPアドレスは空欄にすること。
 1. SENDER ID →　プロジェクト番号
-1. API KEY → キー
+1. API KEY → APIキー
+
+# 構成
+
+## ディレクトリ構成
+```
+.    
+├── www   
+│	├─ app    
+│   │	├── app.js    
+│   │	├── controllers/    
+│   │	├── directives/    
+│   │	├── filters/     
+│   │	├── models/    
+│   │	├── services/   
+│   │	└── views/    
+│	├─ styles    
+│   │	├── scss-config.rb    
+│   │	├── css/   
+│   │	└── scss/    
+│   ├─ images/ 
+│   ├─ bower_components/    
+│   └─ node_modules/ 
+├── plugins/    
+├── platforms/    
+└── hooks/    
+```
+
+- １モジュール１ファイルとして、ファイルを分割する
+- 上位の階層をコンポーネントの種類で分けて、下位の階層は機能性で分ける。
+
+参考URL  
+[http://qiita.com/n0bisuke/items/6a79d3ee63020f771260](http://qiita.com/n0bisuke/items/6a79d3ee63020f771260)  
+[https://github.com/mgechev/angularjs-style-guide/blob/master/README-ja-jp.md](https://github.com/mgechev/angularjs-style-guide/blob/master/README-ja-jp.md)
+
+## SCSS + Grunt
+``grunt``コマンドを実行すると、styles/scss/sytle.scssの変更を監視し、自動コンパイルされる。
+
+## ドキュメント生成　
+Dgeniを利用予定  
+[http://grunt-docular.com/documentation/docular/basics/children](http://grunt-docular.com/documentation/docular/basics/children)
