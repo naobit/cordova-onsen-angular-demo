@@ -18,6 +18,21 @@ app.controller('inputCtrl', ["$scope",function($scope) {
 app.controller('carouselCtrl',["$scope", function($scope) {
 }]);
 
+app.controller('geolocationCtrl', function($scope) {
+
+    $scope.coords = JSON.parse(window.localStorage.getItem("coords"));
+
+    $scope.clear = function(){
+        $scope.coords = [];
+        window.localStorage.setItem("coords","[]");
+        $cordovaBadge.set(0).then(function() {
+        }, function(err) {
+        });
+    }
+    $scope.refresh = function(){
+        $scope.coords = JSON.parse(window.localStorage.getItem("coords"));
+    }
+});
 
 app.controller('pullHookCtrl', function($scope, $timeout) {
     $scope.items = [];
@@ -128,7 +143,7 @@ app.controller('webviewCtrl', function($scope, $rootScope, $cordovaInAppBrowser)
 
 });
 
-app.run(function($rootScope,$cordovaPushV5,$cordovaBadge) {
+app.run(function($rootScope,$cordovaPushV5,$cordovaBadge,$cordovaGeolocation) {
 
     console.log('app run! but device is not ready');
 
@@ -178,6 +193,58 @@ app.run(function($rootScope,$cordovaPushV5,$cordovaBadge) {
         $rootScope.$on('$cordovaPushV5:errorOccurred', function (event, error) {
             console.log("CordovaV5 error");
         });
+
+        // Geolocation
+        var coords = window.localStorage.getItem("coords");
+        if (coords == null){     
+              window.localStorage.setItem("coords","[]");
+
+              var watchOptions = {
+                timeout : 30000,
+                maximumAge: 30000,
+                enableHighAccuracy: false // may cause errors if true
+              };
+
+              alert("start watching location!");
+
+              var watch = $cordovaGeolocation.watchPosition(watchOptions);
+              watch.then(
+                null,
+                function(err) {
+                    alert("error location! "+JSON.stringify(err));
+                },
+                function(position) {
+                    console.log(position);
+                    var coords = JSON.parse(window.localStorage.getItem("coords"));
+                    coords.unshift({
+                              time:(new Date),
+                              lat:position.coords.latitude,
+                            lng:position.coords.longitude});
+                    
+                    $cordovaBadge.get().then(function(badge) {
+                        $cordovaBadge.set(badge+1).then(function() {});
+                    });
+
+                    window.localStorage.setItem("coords",JSON.stringify(coords));
+
+              });
+        }
+
+        var posOptions = {timeout: 10000, enableHighAccuracy: false};
+          $cordovaGeolocation
+            .getCurrentPosition(posOptions)
+            .then(function (position) {
+                var coords = JSON.parse(window.localStorage.getItem("coords"));
+
+                coords.unshift({
+                        time:(new Date),
+                        lat:position.coords.latitude,
+                        lng:position.coords.longitude});
+                
+                window.localStorage.setItem("coords",JSON.stringify(coords));
+            }, function(err) {
+                alert("error location! "+JSON.stringify(err));
+            });
 
 
     }

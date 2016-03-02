@@ -35,6 +35,14 @@
                         {
                             "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Camera\"><param name=\"ios-package\" value=\"CDVCamera\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"CameraUsesGeolocation\" value=\"false\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -50,7 +58,7 @@
                     "NSLocationWhenInUseUsageDescription": [
                         {
                             "xml": "<string />",
-                            "count": 1
+                            "count": 2
                         }
                     ]
                 }
@@ -83,6 +91,9 @@
             "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
         },
         "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
+        },
+        "cordova-plugin-camera": {
             "PACKAGE_NAME": "jp.co.incubit.cordovaOncNgDemo"
         }
     },
@@ -177,6 +188,38 @@
             "clobbers": [
                 "navigator.geolocation"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
+            "id": "cordova-plugin-camera.Camera",
+            "pluginId": "cordova-plugin-camera",
+            "clobbers": [
+                "Camera"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-camera/www/CameraPopoverOptions.js",
+            "id": "cordova-plugin-camera.CameraPopoverOptions",
+            "pluginId": "cordova-plugin-camera",
+            "clobbers": [
+                "CameraPopoverOptions"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-camera/www/Camera.js",
+            "id": "cordova-plugin-camera.camera",
+            "pluginId": "cordova-plugin-camera",
+            "clobbers": [
+                "navigator.camera"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-camera/www/ios/CameraPopoverHandle.js",
+            "id": "cordova-plugin-camera.CameraPopoverHandle",
+            "pluginId": "cordova-plugin-camera",
+            "clobbers": [
+                "CameraPopoverHandle"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -188,6 +231,7 @@
         "de.appplant.cordova.plugin.badge": "0.7.1",
         "phonegap-plugin-push": "1.5.3",
         "cordova-plugin-inappbrowser": "1.2.0",
-        "cordova-plugin-geolocation": "2.1.0"
+        "cordova-plugin-geolocation": "2.1.0",
+        "cordova-plugin-camera": "2.1.0"
     }
 }

@@ -56,8 +56,8 @@ app.controller('popupNortificationsCtrl', ["$scope",function($scope) {
               break;
             case 'prompt':
               navigator.notification.prompt("prompt", null)
-              break;     
-          }  
+              break;
+          }
     };
 
     $scope.dialogs = {};
@@ -88,7 +88,7 @@ app.controller('beepVibrateCtrl', ["$scope",function($scope) {
             case 'vibrate':
               navigator.notification.vibrate(3000);
               break;
-          }  
+          }
     };
 
 }]);
@@ -98,12 +98,12 @@ app.controller('touchIdCtrl', ["$scope","$cordovaTouchID",function($scope,$cordo
         $cordovaTouchID.checkSupport().then(function() {
            console.log("success, TouchID supported");
         }, function (error) {
-           navigator.notification.alert(error,null, "Touch ID", 'OK' ); 
+           navigator.notification.alert(error,null, "Touch ID", 'OK' );
         });
         $cordovaTouchID.authenticate("Please authenticate by Touch ID").then(function() {
-           navigator.notification.alert("Authenticated",null, "Touch ID", 'OK' ); 
+           navigator.notification.alert("Authenticated",null, "Touch ID", 'OK' );
         }, function () {
-           navigator.notification.alert("Not Authenticated",null, "Touch ID", 'OK' ); 
+           navigator.notification.alert("Not Authenticated",null, "Touch ID", 'OK' );
         });
     }
 }]);
@@ -113,9 +113,9 @@ app.controller('badgesCtrl',["$scope","$cordovaBadge", function($scope,$cordovaB
     $scope.setBadge=function(){
         num =  $scope.badgeCount;
         $cordovaBadge.set(num).then(function() {
-            navigator.notification.alert("Badge count is set to "+num,null, "Badge", 'OK' ); 
+            navigator.notification.alert("Badge count is set to "+num,null, "Badge", 'OK' );
         }, function(err) {
-            navigator.notification.alert("Don't have a permission",null, "Badge", 'OK' ); 
+            navigator.notification.alert("Don't have a permission",null, "Badge", 'OK' );
         });
     }
 
@@ -143,6 +143,37 @@ app.controller('webviewCtrl', function($scope, $rootScope, $cordovaInAppBrowser)
 
 });
 
+app.controller('cameraCtrl', function($scope, $cordovaCamera) {
+
+    $scope.camera = function(){
+        var options = {
+          quality: 50,
+          destinationType: Camera.DestinationType.FILE_URI,
+          sourceType: Camera.PictureSourceType.CAMERA,
+          allowEdit: true,
+          encodingType: Camera.EncodingType.JPEG,
+          targetWidth: 100,
+          targetHeight: 100,
+          popoverOptions: CameraPopoverOptions,
+          saveToPhotoAlbum: false,
+          correctOrientation:true
+        };
+
+        $cordovaCamera.getPicture(options).then(function(imageURI) {
+          var image = document.getElementById('myImage');
+          console.log(image);
+          console.log(imageURI);
+          image.src = imageURI;
+        }, function(err) {
+          alert("error");
+        });
+    }
+});
+
+app.config(function($compileProvider){
+  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+})
+
 app.run(function($rootScope,$cordovaPushV5,$cordovaBadge,$cordovaGeolocation) {
 
     console.log('app run! but device is not ready');
@@ -150,22 +181,22 @@ app.run(function($rootScope,$cordovaPushV5,$cordovaBadge,$cordovaGeolocation) {
     function onDeviceReady() {
 
         console.log('device is ready, and start logging!!!');
-            
+
         // set nortiication
         var pushConfig = {
             "android":  {
                 "senderID":"181478742919"
             },
             "ios": {
-                "alert": "true", 
-                "badge": "true", 
+                "alert": "true",
+                "badge": "true",
                 "sound": "true"
             }
         };
 
         console.log('$cordovaPushV5 initialize starts');
         $cordovaPushV5.initialize(pushConfig);
-        
+
         $cordovaPushV5.register().then(function(token){
             console.log('$cordovaPushV5:REGISTERED',token);
             $rootScope.token = token;
@@ -184,10 +215,10 @@ app.run(function($rootScope,$cordovaPushV5,$cordovaBadge,$cordovaGeolocation) {
                 var badgeCount = notification.additionalData.badgeCount;
                 $cordovaBadge.set(badgeCount);
             }
-    
+
             // ここが上手く行かない。
             // $rootScope.ons.findComponent(".ons-navi").pushPage("views/push_nortifications.html",{"nortification":nortification});
-            
+
         });
 
         $rootScope.$on('$cordovaPushV5:errorOccurred', function (event, error) {
@@ -196,7 +227,7 @@ app.run(function($rootScope,$cordovaPushV5,$cordovaBadge,$cordovaGeolocation) {
 
         // Geolocation
         var coords = window.localStorage.getItem("coords");
-        if (coords == null){     
+        if (coords == null){
               window.localStorage.setItem("coords","[]");
 
               var watchOptions = {
@@ -220,7 +251,7 @@ app.run(function($rootScope,$cordovaPushV5,$cordovaBadge,$cordovaGeolocation) {
                               time:(new Date),
                               lat:position.coords.latitude,
                             lng:position.coords.longitude});
-                    
+
                     $cordovaBadge.get().then(function(badge) {
                         $cordovaBadge.set(badge+1).then(function() {});
                     });
@@ -240,7 +271,7 @@ app.run(function($rootScope,$cordovaPushV5,$cordovaBadge,$cordovaGeolocation) {
                         time:(new Date),
                         lat:position.coords.latitude,
                         lng:position.coords.longitude});
-                
+
                 window.localStorage.setItem("coords",JSON.stringify(coords));
             }, function(err) {
                 alert("error location! "+JSON.stringify(err));
