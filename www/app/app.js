@@ -49,10 +49,10 @@ app.controller('popupNortificationsCtrl', ["$scope",function($scope) {
     $scope.showPop = function(type){
         switch (type) {
             case 'alert':
-              navigator.notification.alert("4月24日21時15分\nセブン-イレブン\n利用金額5,332円", null, "JCBカードで\nお取引がありました。", '閉じる' );
+              navigator.notification.alert("message", null, "TITLE", '閉じる' );
               break;
             case 'confirm':
-              navigator.notification.confirm("4月24日21時15分\nセブン-イレブン\n利用金額5,332円", $scope.onConfirm, "JCBカードで\nお取引がありました。", ['閉じる','確認する'] );
+              navigator.notification.confirm("message", $scope.onConfirm, "TITLE", ['閉じる','確認する'] );
               break;
             case 'prompt':
               navigator.notification.prompt("prompt", null)
